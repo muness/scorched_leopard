@@ -102,3 +102,10 @@ function install_taskpaper {
   sudo cp -R /Volumes/TaskPaper-2.1/TaskPaper.app /Applications &&
   hdiutil detach /Volumes/TaskPaper-2.1
 }
+
+function install_stuf {
+  sudo rm -rf /Applications/Stuf.app &&
+  curl -O -L -s http://s3.amazonaws.com/EscapersStuf/Stuf.zip &&
+  unzip -q Stuf.zip &&
+  mv Stuf.app /Applications
+}

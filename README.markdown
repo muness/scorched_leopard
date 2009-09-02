@@ -37,6 +37,7 @@ Here's the list of additional apps that app_installers.sh knows how to install:
     install_mvim       # MacVim
     install_qsb        # Google Quick Search Box
     install_sizeup     # Sizeup
+    install_stuf       # Stuf
     install_taskpaper  # TaskPaper
     install_true_crypt # TrueCrypt # Note: this asks for user input while mounting the dmg
 

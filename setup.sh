@@ -70,6 +70,23 @@ function install_git_nice_to_have {
   gem install defunkt-github webmat-git_remote_branch
 }
 
+function disable_hibernate {
+  sudo pmset -a hibernatemode 0
+  sudo rm /private/var/vm/sleepimage
+}
+
+function java_6_not_5 {
+  cd /System/Library/Frameworks/JavaVM.framework/Versions
+  sudo rm CurrentJDK
+  sudo ln -sf 1.6 CurrentJDK
+}
+
+function install_mate_helpers {
+  mkdir -p ~/Library/Application\ Support/TextMate/Bundles &&
+  cd ~/Library/Application\ Support/TextMate/Bundles &&
+  git clone git://github.com/protocool/ack-tmbundle.git Ack.tmbundle || (cd Ack.tmbundle && git pull)
+}
+
 install_mac_must_haves
 
 export PATH=$PATH:/opt/local/bin
