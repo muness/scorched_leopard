@@ -57,3 +57,11 @@ function install_true_crypt {
   cd /tmp && sleep 10 &&
   hdiutil detach /Volumes/TrueCrypt\ 6.2a/ ; echo "..." # for some reason this doesn't always unmount
 }
+
+function install_gitx {
+  sudo rm -rf /Applications/GitX.app &&
+  curl -O -L -s http://frim.frim.nl/GitXStable.app.zip &&
+  unzip -q GitXStable.app.zip &&
+  sudo mv GitX.app /Applications &&
+  sudo ln -sf /Applications/GitX.app/Contents/Resources/gitx /usr/local/bin
+}

@@ -14,6 +14,7 @@ sudo sh -c "
   install_mate &&
   install_qsb &&
   install_ack &&
+  install_gitx &&
   install_macports &&
   export PATH=$PATH:/opt/local/bin &&
   port install git-core +svn+doc+bash_completion mysql5-server postgresql84-server"
@@ -21,6 +22,8 @@ popd
 
 echo "PATH=$PATH:/opt/local/bin:~/bin" >> ~/.bash_profile
 export PATH=$PATH:/opt/local/bin:~/bin
+
+git config --global alias.ci commit
 
 GEM_RC='
 gem: --no-ri --no-rdoc
