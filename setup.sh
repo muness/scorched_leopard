@@ -1,5 +1,3 @@
-# 1) Install XCode.  Requires auth and doesn't accept http basic auth
-
 mkdir ~/tmp
 mkdir ~/bin
 
