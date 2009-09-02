@@ -6,8 +6,8 @@ A few shell scripts that can install various mac apps with minimal user interven
 
 To get the basics that you need as a ruby developer execute the following:
 
-1) Install XCode.  Apple requires authentication but doesn't accept http basic auth so I can't automate that step.
-2) Execute:
+1. Install XCode.  Apple requires authentication but doesn't accept http basic auth so I can't automate that step.
+2. Execute:
 
 	curl -L http://github.com/muness/scorched_leopard/tree/master%2Fsetup.sh?raw=true?raw=true > ./setup.sh
 	curl -L http://github.com/muness/scorched_leopard/tree/master%2Fapp_installers.sh?raw=true?raw=true > ./app_installers.sh
@@ -41,4 +41,7 @@ Here's the list of additional apps that app_installers.sh knows how to install:
 
 # License
 
-You cannot and will not blame me if they don't work.  If you love it you will tell everyone other mac geek about it.  You can fork at will as long as you give me credit for the original work.
+Simple:
+
+* You cannot and will not blame me if these scripts don't work.
+* You can fork at will as long as you give me credit for the original work.
