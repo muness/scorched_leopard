@@ -59,7 +59,7 @@ function install_ruby_must_haves {
 }
 
 
-# install_mac_must_haves
+install_mac_must_haves
 
 export PATH=$PATH:/opt/local/bin
 

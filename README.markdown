@@ -19,7 +19,7 @@ And the following will be installed:
 * Mac Ports (including the mysql, postgres and git ports)
 * ack
 * Firefox
-* Ruby Switcher
+* Ruby Switcher (and ruby 1.8.6, RubyGems, rake, mysql and postgres gems)
 
 ## I want MORE
 e.g. :
