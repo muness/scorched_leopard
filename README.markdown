@@ -15,11 +15,12 @@ To get the basics that you need as a ruby developer execute the following:
 	
 And the following will be installed:
 
-* TextMate
-* Mac Ports (including the mysql, postgres and git ports)
-* ack
+* Ack
+* Adium
 * Firefox
+* Mac Ports (including the mysql, postgres and git ports)
 * Ruby Switcher (and ruby 1.8.6, RubyGems, rake, mysql and postgres gems)
+* TextMate
 
 ## I want MORE
 e.g. :
@@ -31,13 +32,13 @@ e.g. :
 Here's the list of additional apps that app_installers.sh knows how to install:
 
 	install_iterm      # iTerm
-    install_mvim       # MacVim
-    install_true_crypt # TrueCrypt # Note: this asks for user input while mounting the dmg
-    install_qsb        # Google Quick Search Box
-    install_gitx       # GitX
     install_chrome     # Google Chrome
+    install_gitx       # GitX
+    install_mvim       # MacVim
+    install_qsb        # Google Quick Search Box
     install_sizeup     # Sizeup
     install_taskpaper  # TaskPaper
+    install_true_crypt # TrueCrypt # Note: this asks for user input while mounting the dmg
 
 # License
 

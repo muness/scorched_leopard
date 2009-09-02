@@ -1,3 +1,10 @@
+function install_adium {
+  sudo rm -rf /Applications/Adium.app &&
+  curl -O -s http://adiumx.cachefly.net/Adium_1.3.6.dmg &&
+  hdiutil attach Adium_1.3.6.dmg &&
+  sudo cp -R /Volumes/Adium\ 1.3.6/Adium.app /Applications &&
+  hdiutil detach /Volumes/Adium\ 1.3.6
+}
 
 function install_iterm {
   sudo rm -rf /Applications/iTerm.app &&
