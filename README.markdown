@@ -14,7 +14,6 @@ And the following will be installed:
 * TextMate
 * Mac Ports (including the mysql, postgres and git ports)
 * ack
-* TrueCrypt
 * Firefox
 * Ruby Switcher
 
@@ -29,6 +28,7 @@ Here's the list of additional apps that app_installers.sh knows how to install:
 
 	install_iterm      # iTerm
     install_mvim       # MacVim
+    install_true_crypt # TrueCrypt # Note: this asks for user input while mounting the dmg
     install_qsb        # Google Quick Search Box
     install_gitx       # GitX
     install_chrome     # Google Chrome

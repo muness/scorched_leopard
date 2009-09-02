@@ -6,7 +6,6 @@ function install_mac_must_haves {
   sudo sh -c "
     cd /tmp
     source app_installers.sh && 
-    install_true_crypt && # note: this asks for user input while mounting the dmg
     install_mate &&
     install_ack &&
     install_firefox &&
