@@ -56,6 +56,7 @@ gem: --no-ri --no-rdoc
   gem install capistrano looksee
   
   local IRB_RC='
+require "rubygems"
 require "irb/completion"
 require "looksee/shortcuts"
   '
