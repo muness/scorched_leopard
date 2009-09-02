@@ -48,3 +48,7 @@ function install_macports {
 function install_ack {
   curl http://ack.googlecode.com/svn/tags/latest/ack > /usr/local/bin/ack && chmod 0755 /usr/local/bin/ack
 }
+
+function install_true_crypt {
+  curl -O -s http://www.truecrypt.org/download/TrueCrypt%206.2a%20Mac%20OS%20X.dmg && echo "more here..."
+}
