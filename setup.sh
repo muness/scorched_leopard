@@ -75,6 +75,8 @@ function disable_hibernate {
   sudo rm /private/var/vm/sleepimage
 }
 
+# Leopard specific
+# Install Java update first
 function java_6_not_5 {
   cd /System/Library/Frameworks/JavaVM.framework/Versions
   sudo rm CurrentJDK
