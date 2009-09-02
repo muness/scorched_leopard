@@ -37,12 +37,11 @@ function install_qsb {
 }
 
 function install_macports {
-  curl -O -s http://distfiles.macports.org/MacPorts/MacPorts-1.8.0-10.5-Leopard.dmg &&
-  hdiutil attach MacPorts-1.8.0-10.5-Leopard.dmg &&
-  cd /Volumes/MacPorts-1.8.0 &&
-  sudo installer -pkg MacPorts-1.8.0.pkg -target "/" &&
-  cd /tmp && 
-  hdiutil detach /Volumes/MacPorts-1.8.0/ ; echo "..." # for some reason this doesn't always unmount
+  curl -O -s http://distfiles.macports.org/MacPorts/MacPorts-1.8.0.tar.bz2 &&
+  tar xjf MacPorts-1.8.0.tar.bz2 &&
+  cd MacPorts-1.8.0 &&
+  ./configure && make && sudo make install &&
+  sudo /opt/local/bin/port selfupdate
 }
 
 function install_ack {
@@ -64,4 +63,35 @@ function install_gitx {
   unzip -q GitXStable.app.zip &&
   sudo mv GitX.app /Applications &&
   sudo ln -sf /Applications/GitX.app/Contents/Resources/gitx /usr/local/bin
+}
+
+function install_firefox {
+  sudo rm -rf /Applications/Firefox.app &&
+  curl -o ff3.5.dmg -L -s http://download.mozilla.org/\?product=firefox-3.5.2\&os=osx\&lang=en-US &&
+  hdiutil attach ff3.5.dmg &&
+  sudo cp -R /Volumes/Firefox/Firefox.app /Applications &&
+  hdiutil detach /Volumes/Firefox
+}
+
+function install_chrome {
+  sudo rm -rf /Applications/GoogleChrome.app
+  curl -O -L -s http://dl.google.com/chrome/mac/dev/GoogleChrome.dmg &&
+  hdiutil attach GoogleChrome.dmg &&
+  sudo cp -R /Volumes/Google\ Chrome/Google\ Chrome.app/ /Applications &&
+  hdiutil detach /Volumes/Google\ Chrome/  
+}
+
+function install_sizeup {
+  sudo rm -rf /Applications/SizeUp.app &&
+  curl -O -s -L http://www.irradiatedsoftware.com/downloads/SizeUp.zip &&
+  unzip -q SizeUp.zip &&
+  mv SizeUp.app /Applications
+}
+
+function install_taskpaper {
+  sudo rm -rf /Applications/TaskPaper.app &&
+  curl -O -L -s http://taskpaper.s3.amazonaws.com/TaskPaper.dmg &&
+  hdiutil attach TaskPaper.dmg &&
+  sudo cp -R /Volumes/TaskPaper-2.1/TaskPaper.app /Applications &&
+  hdiutil detach /Volumes/TaskPaper-2.1
 }
