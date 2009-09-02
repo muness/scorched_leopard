@@ -67,6 +67,7 @@ require "looksee/shortcuts"
 function install_git_nice_to_have {
   git config --global alias.ci commit
   git config --global alias.st status
+  git config --global alias.d  diff
   gem install defunkt-github webmat-git_remote_branch
 }
 
