@@ -44,7 +44,7 @@ function install_ruby_must_haves {
   '
   echo "$GEM_RC" > ~/.gemrc
 
-  curl -L http://github.com/relevance/etc/tree/master%2Fbash%2Fruby_switcher.sh?raw=true?raw=true > ~/ruby_switcher.sh
+  curl -L -s http://github.com/relevance/etc/tree/master%2Fbash%2Fruby_switcher.sh?raw=true?raw=true > ~/ruby_switcher.sh
   echo "source ~/ruby_switcher.sh" >> ~/.bash_profile
 
   source ~/ruby_switcher.sh
@@ -59,7 +59,7 @@ function install_ruby_must_haves {
 }
 
 
-install_mac_must_haves
+# install_mac_must_haves
 
 export PATH=$PATH:/opt/local/bin
 

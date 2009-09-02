@@ -1,4 +1,8 @@
-= Basics
+# What is it?
+
+A few shell scripts that can install various mac apps with minimal user intervention.  They were written by and for a ruby developer.  The ruby developer who brought you ruby switcher.
+
+## Getting started
 
 To get the basics that you need as a ruby developer execute the following:
 
@@ -17,7 +21,7 @@ And the following will be installed:
 * Firefox
 * Ruby Switcher
 
-= More
+## I want MORE
 e.g. :
 
 	curl -L http://github.com/muness/scorched_leopard/tree/master%2Fapp_installers.sh?raw=true?raw=true > /tmp/app_installers.sh
@@ -34,3 +38,7 @@ Here's the list of additional apps that app_installers.sh knows how to install:
     install_chrome     # Google Chrome
     install_sizeup     # Sizeup
     install_taskpaper  # TaskPaper
+
+# License
+
+You cannot and will not blame me if they don't work.  If you love it you will tell everyone other mac geek about it.  You can fork at will as long as you give me credit for the original work.
