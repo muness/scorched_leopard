@@ -42,7 +42,7 @@ function install_macports {
   cd /Volumes/MacPorts-1.8.0 &&
   sudo installer -pkg MacPorts-1.8.0.pkg -target "/" &&
   cd /tmp && 
-  hdiutil detach /Volumes/MacPorts-1.8.0/ ; echo "..."
+  hdiutil detach /Volumes/MacPorts-1.8.0/ ; echo "..." # for some reason this doesn't always unmount
 }
 
 function install_ack {
@@ -50,5 +50,10 @@ function install_ack {
 }
 
 function install_true_crypt {
-  curl -O -s http://www.truecrypt.org/download/TrueCrypt%206.2a%20Mac%20OS%20X.dmg && echo "more here..."
+  curl -o TrueCrypt.dmg -L -s http://www.truecrypt.org/download/TrueCrypt%206.2a%20Mac%20OS%20X.dmg &&
+  hdiutil attach TrueCrypt.dmg &&
+  cd /Volumes/TrueCrypt\ 6.2a/ &&
+  sudo installer -pkg TrueCrypt\ 6.2a.mpkg/ -target "/" &&
+  cd /tmp && sleep 10 &&
+  hdiutil detach /Volumes/TrueCrypt\ 6.2a/ ; echo "..." # for some reason this doesn't always unmount
 }
