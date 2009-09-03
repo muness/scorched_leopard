@@ -15,6 +15,7 @@ function install_mac_must_haves {
     port install git-core +svn+doc+bash_completion && 
     port install mysql5-server postgresql84-server &&
     sudo port clean --all installed &&
+    sudo /opt/local/lib/mysql5/bin/mysql_install_db --user=mysql &&
     launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist &&
     launchctl load -w /Library/LaunchDaemons/org.macports.postgresql84-server.plist"
   popd

@@ -47,3 +47,10 @@ Simple:
 
 * You cannot and will not blame me if these scripts don't work.
 * You can fork at will as long as you give me credit for the original work.
+
+# TODO
+ - Split out Mysql, postgres setup
+ - make mount/unmount specify volume name
+ - extract common code in installers @maybe
+ - pull out (all?) functions from setup.sh to app_installers.sh so they can be sourced separately
+ - check that postgres really starts up
