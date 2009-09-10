@@ -109,3 +109,31 @@ function install_stuf {
   unzip -q Stuf.zip &&
   mv Stuf.app /Applications
 }
+
+function install_p4merge {
+  local p4merge='#!/bin/sh
+/Applications/p4merge.app/Contents/MacOS/p4merge $*
+'
+  local p4diff='#!/bin/sh
+[ $# -eq 7 ] && /usr/local/bin/p4merge "$2" "$5"
+'
+  sudo rm -rf /Applications/p4merge.app 
+  # curl -O -L -s http://www.perforce.com/downloads/perforce/r09.1/bin.macosx104u/P4V.dmg &&
+  hdiutil attach P4V.dmg &&
+  sudo cp -R /Volumes/P4V/p4merge.app /Applications/ &&
+  echo "$p4merge" > p4merge &&
+  sudo cp p4merge /usr/local/bin &&
+  echo "$p4diff" > p4diff &&
+  sudo cp p4diff /usr/local/bin &&
+  sudo chown root:wheel /usr/local/bin/{p4merge,p4diff} &&
+  sudo chmod a+x /usr/local/bin/{p4merge,p4diff} &&
+  git config --global diff.external p4diff &&
+  git config --global merge.keepBackup false &&
+  git config --global merge.tool p4merge &&
+  git config --global merge.p4merge.cmd 'p4merge "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$REMOTE" "$PWD/$MERGED"'  &&
+  git config --global merge.p4merge.keepTemporaries false &&
+  git config --global merge.p4merge.trustExitCode false &&
+  git config --global merge.p4merge.keepBackup false &&
+  hdiutil detach /Volumes/P4V
+
+}
