@@ -118,7 +118,7 @@ function install_p4merge {
 [ $# -eq 7 ] && /usr/local/bin/p4merge "$2" "$5"
 '
   sudo rm -rf /Applications/p4merge.app 
-  # curl -O -L -s http://www.perforce.com/downloads/perforce/r09.1/bin.macosx104u/P4V.dmg &&
+  curl -O -L -s http://www.perforce.com/downloads/perforce/r09.1/bin.macosx104u/P4V.dmg &&
   hdiutil attach P4V.dmg &&
   sudo cp -R /Volumes/P4V/p4merge.app /Applications/ &&
   echo "$p4merge" > p4merge &&
