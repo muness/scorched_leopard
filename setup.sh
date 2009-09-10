@@ -82,8 +82,9 @@ function disable_hibernate {
 # Install Java update first
 function java_6_not_5 {
   cd /System/Library/Frameworks/JavaVM.framework/Versions
-  sudo rm CurrentJDK
+  sudo rm {CurrentJDK,Current}
   sudo ln -sf 1.6 CurrentJDK
+  sudo ln -sf 1.6 Current
 }
 
 function install_mate_helpers {
