@@ -81,7 +81,7 @@ function install_firefox {
 }
 
 function install_chrome {
-  sudo rm -rf /Applications/GoogleChrome.app &&
+  sudo rm -rf /Applications/Google\ Chrome.app &&
   curl -O -L -s http://dl.google.com/chrome/mac/dev/GoogleChrome.dmg &&
   hdiutil attach GoogleChrome.dmg &&
   sudo cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications &&
