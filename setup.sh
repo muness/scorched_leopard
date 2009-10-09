@@ -38,6 +38,7 @@ gem: --no-ri --no-rdoc
 :verbose: true
 :bulk_threshold: 1000
 :sources:
+- http://gemcutter.org
 - http://gems.rubyforge.org
 - http://gems.github.com
 :backtrace: false
