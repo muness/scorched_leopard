@@ -11,6 +11,7 @@ To get the basics that you need as a ruby developer execute the following:
 
 		curl -L http://github.com/muness/scorched_leopard/tree/master%2Fsetup.sh?raw=true?raw=true > ./setup.sh
 		curl -L http://github.com/muness/scorched_leopard/tree/master%2Fapp_installers.sh?raw=true?raw=true > ./app_installers.sh
+                echo "source ./app_installers.sh" >> ~/.bash_profile
 		./setup.sh
 	
 And the following will be installed:
