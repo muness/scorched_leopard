@@ -6,6 +6,12 @@ function install_adium {
   hdiutil detach /Volumes/Adium\ 1.3.6
 }
 
+function install_bash_prompt {
+  curl -L http://github.com/relevance/etc/tree/master%2Fbash%2Fbash_vcs.sh?raw=true > ~/.bash_dont_think.sh &&
+  echo "source ~/.bash_dont_think.sh" >> ~/.bash_profile
+}
+
+
 function install_euca_tools {
 	curl -o euca_deps.tgz http://open.eucalyptus.com/downloads/134 &&
 	tar xzf euca_deps.tgz && cd euca2ools-1.1-src-deps/ &&
