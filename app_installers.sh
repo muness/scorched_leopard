@@ -6,6 +6,20 @@ function install_adium {
   hdiutil detach /Volumes/Adium\ 1.3.6
 }
 
+function install_euca_tools {
+	curl -o euca_deps.tgz http://open.eucalyptus.com/downloads/134 &&
+	tar xzf euca_deps.tgz && cd euca2ools-1.1-src-deps/ &&
+	tar xzf M2Crypto-0.19.1.tar.gz && cd M2Crypto-0.19.1 && sudo python setup.py install && cd ..
+	tar xzf boto-1.8d.tar.gz && cd boto-1.8d && sudo python setup.py install && cd ..
+	cd .. &&
+	curl -o euca_tools.tgz http://open.eucalyptus.com/downloads/135 &&
+	tar xzf euca_tools.tgz &&
+	cd euca2ools-1.1 &&
+	sudo make # fails!
+	sudo cp bin/euca-* /usr/local/bin/ &&
+	cd ..
+}
+
 function install_iterm {
   sudo rm -rf /Applications/iTerm.app &&
 	curl -O -s http://iterm.sourceforge.net/iTerm_0.9.6.20090415.zip &&
@@ -135,5 +149,4 @@ function install_p4merge {
   git config --global merge.p4merge.trustExitCode false &&
   git config --global merge.p4merge.keepBackup false &&
   hdiutil detach /Volumes/P4V
-
 }
