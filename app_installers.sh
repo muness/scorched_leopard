@@ -156,3 +156,21 @@ function install_p4merge {
   git config --global merge.p4merge.keepBackup false &&
   hdiutil detach /Volumes/P4V
 }
+
+function install_macports_postgres {
+  sudo sh -c "
+    export PATH=$PATH:/opt/local/bin &&
+    port install postgresql84-server &&
+    mkdir -p /opt/local/var/db/postgresql84/defaultdb &&
+    chown postgres:postgres /opt/local/var/db/postgresql84/defaultdb &&
+    sudo su postgres -c '/opt/local/lib/postgresql84/bin/initdb -D /opt/local/var/db/postgresql84/defaultdb' &&
+    launchctl load -w /Library/LaunchDaemons/org.macports.postgresql84-server.plist &&
+    /opt/local/etc/LaunchDaemons/org.macports.postgresql84-server/postgresql84-server.wrapper start"
+}
+
+function install_macports_mysql {
+  sudo sh -c "
+    export PATH=$PATH:/opt/local/bin &&
+    port install mysql5-server &&
+    sudo /opt/local/lib/mysql5/bin/mysql_install_db --user=mysql"
+}

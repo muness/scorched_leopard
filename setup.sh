@@ -11,17 +11,12 @@ function install_mac_must_haves {
     install_firefox &&
     install_adium &&
     install_macports &&
+    install_macports_postgres &&
+    install_macports_mysql
+    
     export PATH=$PATH:/opt/local/bin &&
-    port install git-core +svn+doc+bash_completion && 
-    port install mysql5-server postgresql84-server &&
-    sudo port clean --all installed &&
-    sudo /opt/local/lib/mysql5/bin/mysql_install_db --user=mysql &&
-    sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist &&
-    sudo mkdir -p /opt/local/var/db/postgresql84/defaultdb &&
-    sudo chown postgres:postgres /opt/local/var/db/postgresql84/defaultdb &&
-    sudo su postgres -c '/opt/local/lib/postgresql84/bin/initdb -D /opt/local/var/db/postgresql84/defaultdb' &&
-    sudo launchctl load -w /Library/LaunchDaemons/org.macports.postgresql84-server.plist"
-    # sudo /opt/local/etc/LaunchDaemons/org.macports.postgresql84-server/postgresql84-server.wrapper start # to start postgres
+    port install git-core +svn+doc+bash_completion
+    port clean --all installed &&"
   popd
   
   sudo rm -rf /tmp/*
