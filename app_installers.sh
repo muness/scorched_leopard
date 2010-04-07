@@ -72,7 +72,7 @@ function install_macports {
 }
 
 function install_ack {
-  curl http://ack.googlecode.com/svn/tags/latest/ack > /usr/local/bin/ack && chmod 0755 /usr/local/bin/ack
+  curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack && chmod 0755 /usr/local/bin/ack
 }
 
 function install_true_crypt {
