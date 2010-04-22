@@ -123,7 +123,7 @@ function install_taskpaper {
   hdiutil detach /Volumes/TaskPaper-2.1
 }
 
-function install_taskpaper {
+function install_skype {
   sudo rm -rf /Applications/Skype.app &&
   curl -O -L -s http://www.skype.com/go/getskype-macosx.dmg &&
   hdiutil attach getskype-macosx.dmg &&
