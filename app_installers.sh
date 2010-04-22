@@ -28,7 +28,7 @@ function install_euca_tools {
 
 function install_iterm {
   sudo rm -rf /Applications/iTerm.app &&
-	curl -O -s http://iterm.sourceforge.net/iTerm_0.9.6.20090415.zip &&
+	curl -O -L -s http://downloads.sourceforge.net/iterm/iTerm_0.10.zip &&
 	unzip -q iTerm*.zip &&
 	sudo mv iTerm.app /Applications
 }
@@ -76,12 +76,12 @@ function install_ack {
 }
 
 function install_true_crypt {
-  curl -o TrueCrypt.dmg -L -s http://www.truecrypt.org/download/TrueCrypt%206.2a%20Mac%20OS%20X.dmg &&
+  curl -o TrueCrypt.dmg -L -s http://www.truecrypt.org/download/TrueCrypt%206.3a%20Mac%20OS%20X.dmg &&
   hdiutil attach TrueCrypt.dmg &&
-  cd /Volumes/TrueCrypt\ 6.2a/ &&
-  sudo installer -pkg TrueCrypt\ 6.2a.mpkg/ -target "/" &&
+  cd /Volumes/TrueCrypt\ 6.3a/ &&
+  sudo installer -pkg TrueCrypt\ 6.3a.mpkg/ -target "/" &&
   cd /tmp && sleep 10 &&
-  hdiutil detach /Volumes/TrueCrypt\ 6.2a/ ; echo "..." # for some reason this doesn't always unmount
+  hdiutil detach /Volumes/TrueCrypt\ 6.3a/ ; echo "..." # for some reason this doesn't always unmount
 }
 
 function install_gitx {

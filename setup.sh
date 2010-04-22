@@ -5,18 +5,22 @@ function install_mac_must_haves {
   pushd /tmp
   sudo sh -c "
     cd /tmp
+    mkdir -p /usr/local/bin &&
+    mkdir -p ~/bin &&
     source app_installers.sh && 
     install_mate &&
     install_ack &&
     install_firefox &&
     install_adium &&
     install_macports &&
-    install_macports_postgres &&
-    install_macports_mysql
-    
     export PATH=$PATH:/opt/local/bin &&
-    port install git-core +svn+doc+bash_completion
-    port clean --all installed &&"
+    port install ccache &&
+    perl -i.orig -p -e 's/(configureccache\s+)no/$1yes/' /opt/local/etc/macports/macports.conf &&
+    perl -i.orig -p -e 's/\#(buildmakejobs\s+)1/$1 0/' /opt/local/etc/macports/macports.conf &&
+    install_macports_postgres &&
+    install_macports_mysql &&
+    port install git-core +doc+bash_completion &&
+    port clean --all installed"
   popd
   
   sudo rm -rf /tmp/*
@@ -32,10 +36,6 @@ gem: --no-ri --no-rdoc
 :update_sources: true
 :verbose: true
 :bulk_threshold: 1000
-:sources:
-- http://gemcutter.org
-- http://gems.rubyforge.org
-- http://gems.github.com
 :backtrace: false
 :benchmark: false
   '
@@ -45,16 +45,17 @@ gem: --no-ri --no-rdoc
   echo "source ~/ruby_switcher.sh" >> ~/.bash_profile
 
   source ~/ruby_switcher.sh
-  install_ruby_186
+  install_ruby_187
 
-  echo "use_ruby_186" >> ~/.bash_profile
+  echo "use_ruby_187" >> ~/.bash_profile
 
   ARCHFLAGS="-arch i386" gem install mysql
   ARCHFLAGS="-arch i386" gem install postgres -- \
     --with-pgsql-lib=/opt/local/lib/postgresql84 \
     --with-pgsql-include=/opt/local/include/postgresql84
-    
-  gem install capistrano looksee
+
+  gem update --system 
+  gem install capistrano looksee bundler bundler08
   
   local IRB_RC='
 require "rubygems"
@@ -70,27 +71,15 @@ function install_git_nice_to_have {
   git config --global alias.st status
   git config --global alias.d  diff
   git config --global alias.co checkout
-  gem install defunkt-github webmat-git_remote_branch
-}
-
-function disable_hibernate {
-  sudo pmset -a hibernatemode 0
-  sudo rm /private/var/vm/sleepimage
-}
-
-# Leopard specific
-# Install Java update first
-function java_6_not_5 {
-  cd /System/Library/Frameworks/JavaVM.framework/Versions
-  sudo rm {CurrentJDK,Current}
-  sudo ln -sf 1.6 CurrentJDK
-  sudo ln -sf 1.6 Current
+  gem install github git_remote_branch
 }
 
 function install_mate_helpers {
+	pushd &&
   mkdir -p ~/Library/Application\ Support/TextMate/Bundles &&
   cd ~/Library/Application\ Support/TextMate/Bundles &&
-  git clone git://github.com/protocool/ack-tmbundle.git Ack.tmbundle || (cd Ack.tmbundle && git pull)
+  git clone git://github.com/protocool/ack-tmbundle.git Ack.tmbundle || (cd Ack.tmbundle && git pull) &&
+  popd
 }
 
 install_mac_must_haves
@@ -100,3 +89,4 @@ export PATH=$PATH:/opt/local/bin
 add_ports_to_path
 install_ruby_must_haves
 install_git_nice_to_have
+install_mate_helpers
