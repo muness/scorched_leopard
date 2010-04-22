@@ -123,6 +123,14 @@ function install_taskpaper {
   hdiutil detach /Volumes/TaskPaper-2.1
 }
 
+function install_taskpaper {
+  sudo rm -rf /Applications/Skype.app &&
+  curl -O -L -s http://www.skype.com/go/getskype-macosx.dmg &&
+  hdiutil attach getskype-macosx.dmg &&
+  sudo cp -R /Volumes/Skype/Skype.app /Applications &&
+  hdiutil detach /Volumes/Skype
+}
+
 function install_stuf {
   sudo rm -rf /Applications/Stuf.app &&
   curl -O -L -s http://s3.amazonaws.com/EscapersStuf/Stuf.zip &&
