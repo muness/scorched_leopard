@@ -13,14 +13,14 @@ function install_bash_prompt {
 
 
 function install_euca_tools {
-	curl -o euca_deps.tgz http://open.eucalyptus.com/downloads/134 &&
-	tar xzf euca_deps.tgz && cd euca2ools-1.1-src-deps/ &&
+	curl -L -o euca_deps.tgz http://open.eucalyptus.com/sites/all/modules/pubdlcnt/pubdlcnt.php?file=http://eucalyptussoftware.com/downloads/releases/euca2ools-1.2-src-deps.tar.gz &&
+	tar xzf euca_deps.tgz && cd euca2ools-1.2-src-deps/ &&
 	tar xzf M2Crypto-0.19.1.tar.gz && cd M2Crypto-0.19.1 && sudo python setup.py install && cd ..
 	tar xzf boto-1.8d.tar.gz && cd boto-1.8d && sudo python setup.py install && cd ..
 	cd .. &&
-	curl -o euca_tools.tgz http://open.eucalyptus.com/downloads/135 &&
+	curl -L -o euca_tools.tgz http://open.eucalyptus.com/sites/all/modules/pubdlcnt/pubdlcnt.php?file=http://eucalyptussoftware.com/downloads/releases/euca2ools-1.2.tar.gz &&
 	tar xzf euca_tools.tgz &&
-	cd euca2ools-1.1 &&
+	cd euca2ools-1.2 &&
 	sudo make # fails!
 	sudo cp bin/euca-* /usr/local/bin/ &&
 	cd ..
