@@ -11,7 +11,6 @@ function install_bash_prompt {
   echo "source ~/.bash_dont_think.sh" >> ~/.bash_profile
 }
 
-
 function install_euca_tools {
 	curl -L -o euca_deps.tgz http://open.eucalyptus.com/sites/all/modules/pubdlcnt/pubdlcnt.php?file=http://eucalyptussoftware.com/downloads/releases/euca2ools-1.2-src-deps.tar.gz &&
 	tar xzf euca_deps.tgz && cd euca2ools-1.2-src-deps/ &&
@@ -26,6 +25,7 @@ function install_euca_tools {
 	cd ..
 }
 
+# TODO: Update to iTerm 2
 function install_iterm {
   sudo rm -rf /Applications/iTerm.app &&
 	curl -O -L -s http://downloads.sourceforge.net/iterm/iTerm_0.10.zip &&
@@ -33,6 +33,7 @@ function install_iterm {
 	sudo mv iTerm.app /Applications
 }
 
+# TODO: Update to a later mvim
 function install_mvim {
   sudo rm -rf /Applications/MacVim.app &&
   curl -O -s http://macvim.googlecode.com/files/MacVim-snapshot-49.tbz &&
@@ -42,6 +43,7 @@ function install_mvim {
   mv mvim ~/bin && cd /tmp
 }
 
+# TODO: Update to a later TextMate
 function install_mate {
   sudo rm -rf /Applications/TextMate.app &&
   curl -O -s http://download-b.macromates.com/TextMate_1.5.9.dmg &&
@@ -53,16 +55,6 @@ function install_mate {
   ln -sf /Applications/TextMate.app/Contents/Resources/mate /usr/local/bin/mate
 }
 
-function install_qsb {
-  sudo rm -rf /Applications/Quick\ Search\ Box.app/ &&
-  curl -O -s http://qsb-mac.googlecode.com/files/GoogleQuickSearchBox-2.0.0.1674.Release.dmg &&
-  hdiutil attach GoogleQuickSearchBox-2.0.0.1674.Release.dmg &&
-  cd /Volumes/GoogleQuickSearchBox-2.0.0.1674.Release &&
-  sudo cp -R Quick\ Search\ Box.app /Applications/ &&
-  cd /tmp && sleep 1 &&
-  hdiutil detach /Volumes/GoogleQuickSearchBox-2.0.0.1674.Release/
-}
-
 function install_macports {
   curl -O -s http://distfiles.macports.org/MacPorts/MacPorts-1.8.0.tar.bz2 &&
   tar xjf MacPorts-1.8.0.tar.bz2 &&
@@ -72,9 +64,10 @@ function install_macports {
 }
 
 function install_ack {
-  curl http://betterthangrep.com/ack-standalone > /usr/local/bin/ack && chmod 0755 /usr/local/bin/ack
+  curl -s http://betterthangrep.com/ack-standalone > /usr/local/bin/ack && chmod 0755 /usr/local/bin/ack
 }
 
+# Update to 7
 function install_true_crypt {
   curl -o TrueCrypt.dmg -L -s http://www.truecrypt.org/download/TrueCrypt%206.3a%20Mac%20OS%20X.dmg &&
   hdiutil attach TrueCrypt.dmg &&
@@ -94,8 +87,8 @@ function install_gitx {
 
 function install_firefox {
   sudo rm -rf /Applications/Firefox.app &&
-  curl -o ff3.5.dmg -L -s http://download.mozilla.org/\?product=firefox-3.5.2\&os=osx\&lang=en-US &&
-  hdiutil attach ff3.5.dmg &&
+  curl -o ff3.dmg -L -s 'http://download.mozilla.org/?product=firefox-3.6.12&os=osx&lang=en-US' &&
+  hdiutil attach ff3.dmg &&
   sudo cp -R /Volumes/Firefox/Firefox.app /Applications &&
   hdiutil detach /Volumes/Firefox
 }

@@ -32,7 +32,6 @@ Here's the list of additional apps that app_installers.sh knows how to install:
     install_chrome     # Google Chrome
     install_gitx       # GitX
     install_mvim       # MacVim
-    install_qsb        # Google Quick Search Box
     install_sizeup     # Sizeup
     install_stuf       # Stuf
     install_taskpaper  # TaskPaper
