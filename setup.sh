@@ -41,26 +41,9 @@ gem: --no-ri --no-rdoc
   '
   echo "$GEM_RC" > ~/.gemrc
 
-  curl -L -s http://github.com/relevance/etc/tree/master%2Fbash%2Fruby_switcher.sh?raw=true?raw=true > ~/ruby_switcher.sh
-  echo "source ~/ruby_switcher.sh" >> ~/.bash_profile
-
-  source ~/ruby_switcher.sh
-  install_ruby_187
-
-  echo "use_ruby_187" >> ~/.bash_profile
-
-  ARCHFLAGS="-arch i386" gem install mysql
-  ARCHFLAGS="-arch i386" gem install postgres -- \
-    --with-pgsql-lib=/opt/local/lib/postgresql84 \
-    --with-pgsql-include=/opt/local/include/postgresql84
-
-  gem update --system 
-  gem install capistrano looksee bundler bundler08
-  
   local IRB_RC='
 require "rubygems"
 require "irb/completion"
-require "looksee/shortcuts"
   '
   
   echo "$IRB_RC" > ~/.irbrc
